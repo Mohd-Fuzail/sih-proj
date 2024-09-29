@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Development Monitoring</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Section: Header with Logo -->
+    <header>
+        <div class="container">
+            <a href="#"><img src="https://seeklogo.com/images/F/filobiosis-eye-2-logo-5CC050C34D-seeklogo.com.png" alt="Logo" class="logo"></a>
+            <nav>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#challenge">Challenge</a></li>
+                    <li><a href="#solution">Solution</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Button Wrapper for Monitoring Controls -->
+    <div class="button-wrapper">
+        <button class="cta-button start-monitor" onclick="startMonitoring()">Start Monitoring</button>
+        <button class="cta-button stop-monitor" onclick="startMonitoring()">Stop Monitoring</button>
+    </div>
+
+    <!-- Section 1: Hero Section with Fullscreen Camera Module -->
+    <section id="hero">
+        <div class="camera-wrapper">
+            <video id="video" autoplay></video>
+        </div>
+        <div class="section-border"></div> <!-- Horizontal border after button -->
+    </section>
+
+    <!-- Section 2: Problem Overview (Challenge Section) -->
+    <section id="challenge">
+        <h2>The Challenge</h2>
+        <p>Current issues in skill development training include inadequate monitoring of classroom activities and failure to assess the relevance of the training content...</p>
+        <div class="image-slider">
+            <img src="https://www.shutterstock.com/image-photo/mumbai-maharashtra-india-6-april-260nw-690982810.jpg" alt="Classroom Image 1">
+            <img src="https://www.theindianwire.com/wp-content/uploads/2021/05/study-on-college-students.jpg" alt="Classroom Image 2">
+            <img src="https://cdn.dnaindia.com/sites/default/files/styles/full/public/2018/11/22/756956-shveta-raina-112218.jpg" alt="Classroom Image 3">
+        </div>
+        <div class="section-border"></div>
+    </section>
+
+    <!-- Section 3: Solution and Expected Outcome -->
+    <section id="solution">
+        <h2>The Solution</h2>
+        <p>Our system analyzes classroom images, flags cases needing enhanced monitoring, and helps institutions improve training quality...</p>
+        <div class="workflow">
+            <div class="step">Data Collection</div>
+            <div class="step">Image Analysis</div>
+            <div class="step">Flagging Cases</div>
+            <div class="step">Intervention</div>
+        </div>
+        <div class="section-border"></div>
+    </section>
+
+    <!-- Section 4: Contact Form -->
+    <section id="contact">
+        <h2>Request a Demo or Get in Touch</h2>
+        <form action="#" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="text" name="organization" placeholder="Your Organization" required>
+            <textarea name="message" rows="4" placeholder="Your Message"></textarea>
+            <select name="interest" required>
+                <option value="demo">Request a Demo</option>
+                <option value="info">More Info</option>
+            </select>
+            <button type="submit">Submit</button>
+        </form>
+        <div class="section-border"></div>
+    </section>
+
+    <!-- JavaScript for Camera Module -->
+    <script>
+        // Function to start monitoring via camera
+        function startMonitoring() {
+            const video = document.getElementById('video');
+            if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+                    video.srcObject = stream;
+                }).catch(function(err) {
+                    console.error("Error accessing camera: ", err);
+                });
+            } else {
+                alert("Camera not supported by your browser.");
+            }
+        }
+    </script>
+</body>
+</html>
